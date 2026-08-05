@@ -1,0 +1,14 @@
+Checks: >
+  -*,
+  bugprone-*,
+  performance-*,
+  modernize-*,
+  -modernize-use-trailing-return-type,
+  readability-*,
+  cppcoreguidelines-*
+
+WarningsAsErrors: ""
+
+HeaderFilterRegex: ".*"
+
+FormatStyle: file
