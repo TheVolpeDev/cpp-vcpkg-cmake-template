@@ -150,12 +150,20 @@ Restart your terminal afterwards.
 
 ---
 
-# Clone
+# Usage
 
+To use this template you have 2 options
+
+1. Clone the Repository
 ```bash
-git clone <your-template>
-cd cpp-template
+mkdir your-cpp-project
+cd your-cpp-project
+git clone https://github.com/TheVolpeDev/cpp-vcpkg-cmake-template.git .
 ```
+
+2. Create a repository based on this template
+
+For this you can either click the "Use This Template" button on the Github web interface, or use [this link](https://github.com/new?template_name=cpp-vcpkg-cmake-template&template_owner=TheVolpeDev) for quick creation
 
 ---
 
