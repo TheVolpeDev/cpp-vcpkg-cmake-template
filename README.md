@@ -11,8 +11,8 @@ A modern C++23 project template using:
 
 The template is Linux-first but fully supports Windows.
 
-> ![IMPORTANT]
-> In case VSCode or another editor is acting up in regards to files not being found or classes not existing, make sure to restart the clangd language server, that should fix the issue. Also note that you should first run one of the build scripts (build.sh for Unix systems, build.bat for Windows) to generate the compiler commands.
+>![IMPORTANT]
+>In case VSCode or another editor is acting up in regards to files not being found or classes not existing, make sure to restart the clangd language server, that should fix the issue. Also note that you should first run one of the build scripts (build.sh for Unix systems, build.bat for Windows) to generate the compiler commands.
 
 ---
 
