@@ -1,10 +1,10 @@
 #include "CppTemplate/App.hpp"
 
-#include <iostream>
+#include <cstdio>
 
-// Ignoring the warning because App might eventually hold state, therefore can not be static
+// App will eventually hold state, so run() must remain a member function.
 // NOLINTNEXTLINE(readability-convert-member-functions-to-static)
-void App::run()
+void App::run() const noexcept
 {
-    std::cout << "Hello World\n";
+    std::puts("Hello World");
 }

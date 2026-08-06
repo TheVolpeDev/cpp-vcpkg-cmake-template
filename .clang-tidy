@@ -5,10 +5,13 @@ Checks: >
   modernize-*,
   -modernize-use-trailing-return-type,
   readability-*,
-  cppcoreguidelines-*
+  cppcoreguidelines-*,
+  cert-*,
+  concurrency-*,
+  misc-*
 
-WarningsAsErrors: ""
+WarningsAsErrors: "*"
 
-HeaderFilterRegex: ".*"
+HeaderFilterRegex: "include/.*"
 
 FormatStyle: file

@@ -21,6 +21,17 @@
         "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
         "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
       }
+    },
+    {
+      "name": "asan",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/ASan",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+        "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+        "ENABLE_SANITIZERS": "ON"
+      }
     }
   ],
 
@@ -32,6 +43,10 @@
     {
       "name": "release",
       "configurePreset": "release"
+    },
+    {
+      "name": "asan",
+      "configurePreset": "asan"
     }
   ]
 }

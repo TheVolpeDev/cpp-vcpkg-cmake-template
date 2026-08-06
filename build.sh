@@ -5,7 +5,7 @@ preset="${1:-debug}"
 preset="${preset,,}"
 
 case "$preset" in
-    debug|release)
+    debug|release|asan)
         ;;
     *)
         echo "Usage: ./build.sh [debug|release]"
@@ -23,9 +23,10 @@ fi
 
 cmake --preset "$preset"
 
-cmake --build --preset "$preset"
+cmake --build --preset "$preset" || { echo "Build failed."; exit 1; }
 
-ln -sfn "build/${preset^}/compile_commands.json" compile_commands.json
+rm -f compile_commands.json
+ln -s "build/${preset^}/compile_commands.json" compile_commands.json
 
 echo
 echo "Build completed successfully."
