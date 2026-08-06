@@ -6,28 +6,37 @@ project(
     LANGUAGES CXX
 )
 
+add_library(${PROJECT_NAME}_lib STATIC src/App.cpp)
 
-set(CMAKE_CXX_STANDARD 23)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
+target_compile_features(${PROJECT_NAME}_lib PUBLIC cxx_std_23)
 
+target_include_directories(
+    ${PROJECT_NAME}_lib
+
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/include
+)
 
 add_executable(
     ${PROJECT_NAME}
 
     src/main.cpp
-    src/App.cpp
 )
 
-
-target_include_directories(
-    ${PROJECT_NAME}
-
-    PRIVATE
-    include
-)
-
+target_link_libraries(${PROJECT_NAME} PRIVATE ${PROJECT_NAME}_lib)
 
 include(cmake/CompilerWarnings.cmake)
 
+set_project_warnings(${PROJECT_NAME}_lib)
 set_project_warnings(${PROJECT_NAME})
+
+option(ENABLE_SANITIZERS "Enable ASan + UBSan" OFF)
+if(ENABLE_SANITIZERS)
+    add_compile_options(-fsanitize=address,undefined -fno-omit-frame-pointer)
+    add_link_options(-fsanitize=address,undefined)
+endif()
+
+enable_testing()
+add_subdirectory(tests)
+
+install(TARGETS ${PROJECT_NAME} DESTINATION bin)

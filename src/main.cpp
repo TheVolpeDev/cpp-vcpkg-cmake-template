@@ -1,10 +1,26 @@
 #include "CppTemplate/App.hpp"
 
+#include <cstdlib>
+#include <exception>
+#include <iostream>
+
 int main()
 {
-    App app;
+    try
+    {
+        const App app;
+        app.run();
+    }
+    catch (const std::exception& e)
+    {
+        std::cerr << "Fatal: " << e.what() << '\n';
+        return EXIT_FAILURE;
+    }
+    catch (...)
+    {
+        std::cerr << "Fatal: unknown exception\n";
+        return EXIT_FAILURE;
+    }
 
-    app.run();
-
-    return 0;
+    return EXIT_SUCCESS;
 }
